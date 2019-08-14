@@ -28,6 +28,7 @@
 <!--          v-for="(todo) in todos"-->
 <!--          :key="todo.id"-->
 <!--        >-->
+      <v-row>
     <p v-if="notDelete">You said not to delete it</p>
     <v-card style="padding: 1rem; margin: 1rem"
                   v-for="(todo) in todos"
@@ -55,52 +56,10 @@
               </div>
             </v-card-actions>
           </v-card>
-<!--          <v-list-item-icon>-->
-<!--            <v-icon v-text="todo.src"></v-icon>-->
-<!--          </v-list-item-icon>-->
-<!--          <v-list-item-content>-->
-<!--            <v-list-item-title v-text="todo.name"></v-list-item-title>-->
-<!--          </v-list-item-content>-->
-<!--          <div v-if="checkStatus(todo) === 'not done' ">-->
-<!--          <v-btn small style="margin: 1rem" @click="changeStatusToDone(todo)">Done</v-btn>-->
-<!--          <v-btn small @click="deleteTodo(todo.id)">Delete</v-btn>-->
-<!--        </div>-->
-<!--          <div v-if="checkStatus(todo) === 'done'">-->
-<!--             <v-btn small style="margin: 1rem"  @click="changeStatusToNotDone(todo)">Re do</v-btn>-->
-<!--            <v-btn small  @click="deleteTodo(todo.id)">Delete</v-btn>-->
-<!--          </div>-->
-<!--        </v-list-item>-->
-<!--      </v-list-item-group>-->
-<!--    </v-list>-->
+      </v-row>
   </div>
 </template>
 
-<!--  <v-row align="center">-->
-<!--  <div>-->
-<!--    <h3>Todo Lists</h3>-->
-<!--    <p style="color: red" v-if="error">No todo Entered</p>-->
-<!--    <v-text-field style="display: inline-block" type="text" v-model="newTodo"></v-text-field>-->
-<!--    <span v-if="newTodo"> adding-->
-<!--      <span style="font-style: italic; color: #4fc08d">{{newTodo}}</span>-->
-<!--    </span>-->
-<!--    <div>-->
-<!--      <v-btn small @click="addNewTodo(newTodo)">Submit</v-btn>-->
-<!--    </div>-->
-<!--    <p v-if="notDelete">You said not to delete it</p>-->
-<!--    <div :key="todo.id" v-for="todo in todos">-->
-<!--      <div v-if="checkStatus(todo) === 'not done' ">-->
-<!--        {{todo.name}}-->
-<!--        <v-btn small style="margin: 1rem" @click="changeStatusToDone(todo)">Done</v-btn>-->
-<!--        <v-btn small @click="deleteTodo(todo.id)">Delete</v-btn>-->
-<!--      </div>-->
-<!--      <div v-if="checkStatus(todo) === 'done'">-->
-<!--        {{todo.name}}-->
-<!--        <v-btn small style="margin: 1rem"  @click="changeStatusToNotDone(todo)">Re do</v-btn>-->
-<!--        <v-btn small  @click="deleteTodo(todo.id)">Delete</v-btn>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  </v-row>-->
 <script>
 
 export default {
