@@ -7,7 +7,7 @@
         v-model="valid"
       >
         <span style="color: red" v-if="error">No todo Entered</span>
-
+        <v-card-text>Add new todo</v-card-text>
         <v-text-field
           v-model="newTodo"
           label="What are you planning to do"
@@ -19,42 +19,30 @@
           label="Image url"
           required
         ></v-text-field>
-        <v-btn small @click="addNewTodo(newTodo, imageSrc)">Submit</v-btn>
+        <v-btn small color="primary" @click="addNewTodo(newTodo, imageSrc)">Submit</v-btn>
       </v-form>
-    </v-row>
-<!--    <v-list>-->
-<!--      <v-subheader>TODO LIST</v-subheader>-->
-<!--      <v-list-item-group v-model="item" color="primary">-->
-<!--        <v-list-item-->
-<!--          v-for="(todo) in todos"-->
-<!--          :key="todo.id"-->
-<!--        >-->
-      <v-row>
     <p v-if="notDelete">You said not to delete it</p>
-    <v-card style="padding: 1rem;"
+    <v-card style="padding: .5rem; margin: .5rem"
                   v-for="(todo) in todos"
                   :key="todo.id"
                   max-width="344"
                   width="300"
                   class="mx-auto" >
-            <v-list-item-avatar
-              tile
-              size="80"
-            >
+            <v-list-item-avatar tile size="80">
               <v-img class="elevation-5" :src="todo.src"></v-img>
             </v-list-item-avatar>
             <v-cart-title>{{todo.name}}</v-cart-title>
             <v-card-text>{{todo.desc}}</v-card-text>
             <v-card-actions>
               <div v-if="checkStatus(todo) === 'not done' ">
-                <v-btn small style="margin: 1rem" @click="changeStatusToDone(todo)">Done</v-btn>
-                <v-btn small @click="deleteTodo(todo.id)">Delete</v-btn>
+                <v-btn small color="success" style="margin: 1rem" @click="changeStatusToDone(todo)">Done</v-btn>
+                <v-btn small color="error" @click="deleteTodo(todo.id)">Delete</v-btn>
               </div>
               <div v-if="checkStatus(todo) === 'done'">
-                <v-btn small style="margin: 1rem"  @click="changeStatusToNotDone(todo)">
+                <v-btn small color="warning" style="margin: 1rem"  @click="changeStatusToNotDone(todo)">
                   Re do
                 </v-btn>
-                <v-btn small  @click="deleteTodo(todo.id)">Delete</v-btn>
+                <v-btn small color="error" @click="deleteTodo(todo.id)">Delete</v-btn>
               </div>
             </v-card-actions>
           </v-card>
