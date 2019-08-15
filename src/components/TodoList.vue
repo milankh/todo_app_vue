@@ -1,5 +1,6 @@
 <template>
   <div>
+   <v-app>
     <v-row align="center">
       <v-form
         ref="form"
@@ -30,11 +31,12 @@
 <!--        >-->
       <v-row>
     <p v-if="notDelete">You said not to delete it</p>
-    <v-card style="padding: 1rem; margin: 1rem"
+    <v-card style="padding: 1rem;"
                   v-for="(todo) in todos"
                   :key="todo.id"
                   max-width="344"
-                  class="mx-auto ">
+                  width="300"
+                  class="mx-auto" >
             <v-list-item-avatar
               tile
               size="80"
@@ -57,6 +59,7 @@
             </v-card-actions>
           </v-card>
       </v-row>
+      </v-app>
   </div>
 </template>
 
